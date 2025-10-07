@@ -11,7 +11,8 @@ interface GeoMapWidgetProps {
 const GeoMapWidget: React.FC<GeoMapWidgetProps> = ({ data, widgetName, isEditing }) => {
     if (!data) return null;
 
-    const maxVal = Math.max(...Object.values(data).map(d => d.value));
+    // Fix: Explicitly type the parameter 'd' to resolve the 'unknown' type from Object.values().
+    const maxVal = Math.max(...Object.values(data).map((d: { value: number }) => d.value));
     
     // Simplified positions for major markets on a conceptual map
     const countryPositions: Record<string, {x: string, y: string, name: string}> = {

@@ -33,13 +33,15 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ role, dashboard, onLayout
             breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
             cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
             rowHeight={30}
+            margin={[24, 24]}
+            containerPadding={[0, 0]}
             onLayoutChange={(_, allLayouts) => onLayoutChange(allLayouts.lg)}
             isDraggable={isEditing}
             isResizable={isEditing}
             draggableHandle=".drag-handle"
         >
             {widgets.map((widget: Widget) => (
-                <div key={widget.id} className="bg-white dark:bg-gray-800 rounded-xl flex flex-col group relative transition-shadow duration-200 hover:shadow-lg">
+                <div key={widget.id} className="bg-white dark:bg-gray-800 rounded-xl flex flex-col group relative transition-shadow duration-200 hover:shadow-lg border border-gray-200 dark:border-gray-700">
                     {isEditing && (
                         <>
                            <div className="absolute inset-0 border-2 border-dashed border-indigo-400 rounded-xl pointer-events-none z-10"></div>
